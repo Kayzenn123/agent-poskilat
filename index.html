@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#eef1fb">
+<title>POSKILAT — Terminal Kartu Pos</title>
+<meta name="description" content="POSKILAT: terminal kantor pos 1987 untuk menulis, mencap, dan mengarsipkan kartu pos digital. Ketik perintah, cetak struk, kirim kabar yang berkesan.">
+<meta property="og:title" content="POSKILAT — Terminal Kartu Pos">
+<meta property="og:description" content="Tulis kartu pos lewat perintah terminal. Cap pos merah, struk thermal, arsip kiriman.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="og-image.png">
+<meta property="og:locale" content="id_ID">
+<link rel="preload" href="fonts/honk-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip-link" href="#konten">Lompat ke konten</a>
+
+<header class="site-head">
+  <p class="site-head__brand">POSKILAT <span class="site-head__tahun">1987</span></p>
+  <div class="site-head__actions">
+    <button id="gerak-toggle" type="button" aria-pressed="true">Gerak: Nyala</button>
+    <button id="jeda-marquee" type="button" aria-pressed="false">Jeda</button>
+  </div>
+</header>
+
+<main id="konten">
+
+  <section id="hero" aria-labelledby="hero-judul">
+    <div class="hero-title">
+      <h1 id="hero-judul">KARTU POS</h1>
+      <p class="hero-sub">Selamat datang di loket POSKILAT, Dek. Pak Pos yang jaga. Mau kirim kabar yang berkesan? Tinggal ketik perintah di bawah — nggak perlu antre, nggak perlu antrean nomor.</p>
+    </div>
+
+    <div id="term" class="terminal" role="log" aria-live="polite" aria-label="Terminal kantor pos">
+      <div id="term-out"></div>
+      <form id="term-form" autocomplete="off">
+        <span class="prompt" aria-hidden="true">pos@kantor:~$</span>
+        <input id="term-input" type="text" name="perintah" aria-label="Ketik perintah" autocapitalize="off" autocorrect="off" spellcheck="false" maxlength="120">
+        <button type="submit" class="term-kirim">Kirim</button>
+      </form>
+      <p class="term-hint">ketik <kbd>tulis</kbd> lalu ENTER — ketik <kbd>bantuan</kbd> kalau bingung, Dek.</p>
+    </div>
+  </section>
+
+  <div class="mq marquee" aria-label="Pita berjalan kantor pos">
+    <div class="mq-band mq-band-1 mq-1"><div class="mq-track" aria-hidden="true"></div></div>
+    <div class="mq-band mq-band-2 mq-2"><div class="mq-track" aria-hidden="true"></div></div>
+    <div class="mq-band mq-band-3 mq-3"><div class="mq-track" aria-hidden="true"></div></div>
+  </div>
+
+  <section id="tulis" aria-labelledby="tulis-judul">
+    <h2 id="tulis-judul">TULIS KARTU</h2>
+    <p class="tulis-intro">Isi empat kolom ini pelan-pelan, Dek — sama seperti nulis kartu pos beneran. Nanti kartunya tercetak sendiri di bawah.</p>
+    <div id="wizard"></div>
+    <div id="preview" aria-label="Pratinjau kartu pos">
+      <div class="postcard" id="kartu">
+        <div class="card-face card-front"><div class="card-landmark"><p>Kartu pos belum ditulis, Dek.</p></div><div class="card-meta"><span>KARTU POS</span><span>POSKILAT</span></div></div>
+        <div class="card-face card-back"><div class="card-msg">Ketik `tulis` di terminal buat mulai.</div><div class="card-addr"><div class="addr-line"></div><div class="addr-line"></div></div></div>
+        <div class="cap-stamp" aria-hidden="true"><span>POSKILAT<br>TERKIRIM</span></div>
+      </div>
+      <button id="flip" type="button">Balik kartu</button>
+    </div>
+  </section>
+
+  <section id="perangko" aria-labelledby="perangko-judul">
+    <h2 id="perangko-judul">PERANGKO</h2>
+    <p class="perangko-intro">Enam belas kota, enam belas perangko, Dek. Arahkan kursor atau sentuh satu — warna tintanya ngikutin seluruh halaman.</p>
+    <div id="stamp-wall"></div>
+  </section>
+
+  <section id="arsip" aria-labelledby="arsip-judul">
+    <h2 id="arsip-judul">ARSIP KIRIMAN</h2>
+    <div id="arsip-list"></div>
+    <p id="arsip-empty">Arsip masih kosong melompong, Dek. Belum ada kartu yang dikirim.</p>
+  </section>
+
+</main>
+
+<footer>
+  <p class="footer-persona">Dijaga Pak Pos, petugas loket POSKILAT. Semua nama dan pesan di halaman ini hanya data contoh — yang Dek ketik sendiri tidak dikirim ke mana-mana, cuma tersimpan di peramban Dek.</p>
+  <p class="footer-kredit">Ikon UI: Remix Icon (Apache-2.0) · Landmark kota: digambar tangan ala monoline · Huruf: Honk, Ancizar Sans, Cause</p>
+</footer>
+
+<noscript>
+  <p class="noscript">Waduh, Dek — terminal POSKILAT butuh JavaScript biar bisa dipakai. Nyalakan dulu JavaScript-nya, lalu Pak Pos layani lagi.</p>
+</noscript>
+
+<script src="terminal.js" defer></script>
+<script src="stamps.js" defer></script>
+<script src="store.js" defer></script>
+<script src="compose.js" defer></script>
+<script src="motion.js" defer></script>
+</body>
+</html>

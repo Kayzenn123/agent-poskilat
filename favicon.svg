@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Cap pos POSKILAT">
+  <title>Cap pos POSKILAT</title>
+  <!-- tinta teks di atas transparan -->
+  <g fill="oklch(0.20 0.040 240)">
+    <!-- lingkaran ganda -->
+    <circle cx="32" cy="32" r="30" fill="none" stroke="oklch(0.20 0.040 240)" stroke-width="2.5"/>
+    <circle cx="32" cy="32" r="24" fill="none" stroke="oklch(0.20 0.040 240)" stroke-width="1.5"/>
+    <!-- teks melengkung POSKILAT -->
+    <defs>
+      <path id="poskilat-arc" d="M 32,32 m -26,0 a 26,26 0 1,1 52,0 a 26,26 0 1,1 -52,0" fill="none"/>
+    </defs>
+    <text font-family="monospace" font-size="8.5" font-weight="700" letter-spacing="2.5">
+      <textPath href="#poskilat-arc" startOffset="0%">POSKILAT ★ POSKILAT ★</textPath>
+    </text>
+    <!-- bintang tengah -->
+    <path d="M 32,21 L 34.9,28.1 L 42.6,28.2 L 36.4,32.7 L 38.5,39.8 L 32,35.9 L 25.5,39.8 L 27.6,32.7 L 21.4,28.2 L 29.1,28.1 Z"/>
+  </g>
+</svg>
